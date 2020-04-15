@@ -30,7 +30,21 @@ namespace Kata.Spec
             var negatives = numbers.Where(x => int.Parse(x) < 0);
             if (negatives.Any())
             {
-                throw new Exception($"Negatives not allowed: {negatives.First()}");
+                string msg = "";
+                for (int a = 0; a < negatives.Count(); a++)
+                {
+                    if (a == negatives.Count() - 1)
+                    {
+                        msg += negatives.ElementAt(a);
+                    }
+                    else
+                    {
+                        msg += negatives.ElementAt(a);
+                        msg += ", ";
+                    }
+                }
+
+                throw new Exception($"Negatives not allowed: {msg}");
             }
 
             int sum = 0;
