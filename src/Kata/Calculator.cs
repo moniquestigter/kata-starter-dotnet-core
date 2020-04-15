@@ -8,10 +8,23 @@ namespace Kata.Spec
         {
             if(string.IsNullOrEmpty(number))
                 return 0;
+
+            string[] numbers;
+            if (number.Contains("//"))
+            {
+                string[] elements = number.Split("\n");
             
 
+                char[] semicolon = elements[0].ToCharArray();
             
-            string[] numbers = number.Split(new []{",","\n"},StringSplitOptions.None);
+
+                 numbers = elements[1].Split(new []{",","\n",semicolon[2].ToString()},StringSplitOptions.None);
+                
+            }
+            else
+            {
+                numbers = number.Split(new []{",","\n"},StringSplitOptions.None);
+            }
 
             int sum = 0;
             foreach (var n in numbers)
