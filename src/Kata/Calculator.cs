@@ -1,3 +1,5 @@
+using System;
+
 namespace Kata.Spec
 {
     public class Calculator
@@ -6,7 +8,17 @@ namespace Kata.Spec
         {
             if(string.IsNullOrEmpty(number))
                 return 0;
-            return 3;
+            
+
+            string[] numbers = number.Split(',');
+
+            int sum = 0;
+            foreach (var n in numbers)
+            {
+                sum += Int32.Parse(n);
+            }
+            
+            return sum;
         }
     }
 }
