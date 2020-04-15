@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace Kata.Spec
 {
@@ -24,6 +25,12 @@ namespace Kata.Spec
             else
             {
                 numbers = number.Split(new []{",","\n"},StringSplitOptions.None);
+            }
+
+            var negatives = numbers.Where(x => int.Parse(x) < 0);
+            if (negatives.Any())
+            {
+                throw new Exception($"Negatives not allowed: {negatives.First()}");
             }
 
             int sum = 0;
