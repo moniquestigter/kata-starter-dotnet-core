@@ -10,7 +10,8 @@ namespace Kata.Spec
                 return 0;
             
 
-            string[] numbers = number.Split(',');
+            
+            string[] numbers = number.Split(new []{",","\n"},StringSplitOptions.None);
 
             int sum = 0;
             foreach (var n in numbers)
